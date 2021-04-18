@@ -11,15 +11,15 @@ public class ApiScenario extends BaseTest {
 
     @Step("Scenario for test `Search` button.")
     void apiScenario(String query, String returnText) {
-        String body = given( )
+        String body = given()
                 .contentType(HTML)
                 .params("Q", query)
-                .when( )
+                .when()
                 .get("/search")
-                .then( )
+                .then()
                 .statusCode(200)
-                .extract( )
-                .asString( );
+                .extract()
+                .asString();
         assertThat(body.contains(returnText));
     }
 }

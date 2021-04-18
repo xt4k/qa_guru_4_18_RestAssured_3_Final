@@ -6,9 +6,6 @@ import tests.tricentis.BaseTest;
 
 import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selenide.open;
-import static io.restassured.RestAssured.given;
-import static io.restassured.http.ContentType.HTML;
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class GuiScenario extends BaseTest {
 
@@ -20,7 +17,7 @@ public class GuiScenario extends BaseTest {
     }
 
     @Step("Scenario with `Unsuccess search`")
-    void unSuccessSearchScenario(String query,String message) {
+    void unSuccessSearchScenario(String query, String message) {
         open(baseUrl);
         new BasePageObject().search(query)
                 .checkNoSearchResult(message);

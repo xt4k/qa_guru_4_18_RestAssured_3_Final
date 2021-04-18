@@ -20,34 +20,34 @@ import static tests.helpers.AttachmentsHelper.*;
 @Owner("yuriy")
 
 public class SearchButton extends BaseTest {
-    QueryConverter qc = new QueryConverter( );
+    QueryConverter qc = new QueryConverter();
     private String query;
     private String answer;
-    private GuiScenario apiTest = new GuiScenario( );
+    private GuiScenario apiTest = new GuiScenario();
 
     @Test
     @DisplayName("Test Ui_01: Search returns 1 result match.")
-    void searchSuccess1Result( ) {
+    void searchSuccess1Result() {
         query = getProperty("query3");
         apiTest.successSearchScenario(query);
     }
 
     @Test
     @DisplayName("Test Ui_02: Search not found any result.")
-    void searchNoResultTest( ) {
+    void searchNoResultTest() {
         query = getProperty("query2");
-        String message=getProperty("no.search.result");
-        apiTest.unSuccessSearchScenario(query,message);
+        String message = getProperty("no.search.result");
+        apiTest.unSuccessSearchScenario(query, message);
     }
 
     @AfterEach
-    public void afterEach( ) {
+    public void afterEach() {
         attachScreenshot("Last screenshot");
-        attachPageSource( );
-        attachAsText("Browser console logs", getConsoleLogs( ));
+        attachPageSource();
+        attachAsText("Browser console logs", getConsoleLogs());
         if (System.getProperty("video_storage") != null)
-            attachVideo( );
-        closeWebDriver( );
+            attachVideo();
+        closeWebDriver();
     }
 
 

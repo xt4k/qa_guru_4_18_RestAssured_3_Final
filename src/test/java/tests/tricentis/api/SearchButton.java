@@ -15,14 +15,14 @@ import utils.QueryConverter;
 @Owner("yuriy")
 
 public class SearchButton extends BaseTest {
-    QueryConverter qc = new QueryConverter( );
+    QueryConverter qc = new QueryConverter();
     private String query;
     private String answer;
-    private ApiScenario apiTest = new ApiScenario( );
+    private ApiScenario apiTest = new ApiScenario();
 
     @Test
     @DisplayName("Test Api_01: Search returns 1 result match.")
-    void searchSuccess1Result( ) {
+    void searchSuccess1Result() {
         query = qc.getQuery("query");
         answer = "Show details for Copy of Computing and Internet EX";
         apiTest.apiScenario(query, answer);
@@ -30,7 +30,7 @@ public class SearchButton extends BaseTest {
 
     @Test
     @DisplayName("Test Api_02: Search not found any result matched defined criteria.")
-    void searchNoResultTest( ) {
+    void searchNoResultTest() {
         query = qc.getQuery("query2");
         answer = "No products were found that matched your criteria.";
         apiTest.apiScenario(query, answer);
