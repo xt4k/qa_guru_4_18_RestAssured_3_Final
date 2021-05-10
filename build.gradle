@@ -16,7 +16,10 @@ def allureVersion = "2.13.8",
     slf4jVersion = "1.7.29",
     restAssuredVersion = "4.3.1",
     assertjVer = "3.19.0",
-    aspectjVersion = "1.9.6"
+    aspectjVersion = "1.9.6",
+    lombokVersion = "1.18.20",
+    fakerVersion = "1.0.2",
+    jacksonVersion = "2.12.3"
 
 allure {
     version = "$allureVersion"
@@ -33,7 +36,22 @@ tasks.withType(JavaCompile) {
 
 test {
     useJUnitPlatform()
+    systemProperties(System.getProperties())
 }
+
+task search_api_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags 'search_api'
+    }
+}
+
+
+task wish_api_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags 'wish_api'
+    }
+}
+
 
 dependencies {
     testImplementation(
@@ -45,6 +63,9 @@ dependencies {
             "io.qameta.allure:allure-rest-assured:${allureVersion}",
             "org.assertj:assertj-core:${assertjVer}",
             "org.aspectj:aspectjweaver:${aspectjVersion}",
+            "org.projectlombok:lombok:${lombokVersion}",
+            "com.github.javafaker:javafaker:${fakerVersion}",
+            "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}",
             "org.junit.jupiter:junit-jupiter-api:${junitVersion}",
             "org.junit.jupiter:junit-jupiter-params:${junitVersion}"
     )
