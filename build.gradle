@@ -19,6 +19,7 @@ def allureVersion = "2.13.8",
     aspectjVersion = "1.9.6",
     lombokVersion = "1.18.20",
     fakerVersion = "1.0.2",
+    ownerVersion = "1.0.12",
     jacksonVersion = "2.12.3"
 
 allure {
@@ -61,6 +62,7 @@ task ui_tests(type: Test) {
 
 dependencies {
     testImplementation(
+            "org.aeonbits.owner:owner:${ownerVersion}",
             "io.qameta.allure:allure-selenide:$allureVersion",
             "com.codeborne:selenide:$selenideVersion",
             "io.qameta.allure:allure-java-commons:${allureVersion}",
