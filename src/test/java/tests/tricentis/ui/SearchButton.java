@@ -6,6 +6,7 @@ import io.qameta.allure.Owner;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import tests.tricentis.BaseTest;
 import utils.QueryConverter;
@@ -18,7 +19,7 @@ import static tests.helpers.AttachmentsHelper.*;
 @Feature("Web-shop")
 @Story("Gui testet for button `Search`")
 @Owner("yuriy")
-
+@Tag("ui_search")
 public class SearchButton extends BaseTest {
     QueryConverter qc = new QueryConverter();
     private String query;

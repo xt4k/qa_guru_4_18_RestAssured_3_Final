@@ -41,7 +41,7 @@ test {
 
 task search_api_tests(type: Test) {
     useJUnitPlatform {
-        includeTags 'search_api'
+        includeTags 'api_search'
     }
 }
 
@@ -49,6 +49,12 @@ task search_api_tests(type: Test) {
 task wish_api_tests(type: Test) {
     useJUnitPlatform {
         includeTags 'wish_api'
+    }
+}
+
+task ui_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags 'ui_search'
     }
 }
 
